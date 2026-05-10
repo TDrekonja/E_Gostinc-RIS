@@ -8,9 +8,12 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.TilePane;
+import javafx.util.Callback;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,6 +30,7 @@ public class ZM_Blagajna implements Initializable{
    @FXML private TableColumn<Racun.Postavka, String>  stolpecArtikel;
    @FXML private TableColumn<Racun.Postavka, Integer> stolpecKolicina;
    @FXML private TableColumn<Racun.Postavka, Float>   stolpecCena;
+   @FXML private TableColumn<Racun.Postavka, Void>    stolpecOdstrani;
    @FXML private Label  labelSkupaj;
    @FXML private Button gumbIzdajRacun;
 
@@ -41,6 +45,8 @@ public class ZM_Blagajna implements Initializable{
       stolpecKolicina.setCellValueFactory(new PropertyValueFactory<>("kolicina"));
       stolpecCena.setCellValueFactory(new PropertyValueFactory<>("cena"));
 
+      nastavljGumbZaBrisanje();
+
       tabelaRacuna.setItems(postavkeRacuna);
 
       osveziGumbePoSkupini("Pivo",          panePivo);
@@ -48,6 +54,48 @@ public class ZM_Blagajna implements Initializable{
       osveziGumbePoSkupini("Brezalkoholno", paneBrezalkoholno);
       osveziGumbePoSkupini("Vse",           paneVse);
    }
+
+   private void nastavljGumbZaBrisanje() {
+      stolpecOdstrani.setCellFactory(new Callback<>() {
+         @Override
+         public TableCell<Racun.Postavka, Void> call(TableColumn<Racun.Postavka, Void> col) {
+
+            return new TableCell<>() {
+               private final Button btn = new Button("✕");
+
+               {
+                  btn.getStyleClass().add("gumb-odstrani");
+
+                  btn.setOnAction(e -> {
+                     Racun.Postavka postavka = getTableView().getItems().get(getIndex());
+                     odstraniPostavko(postavka);
+                  });
+               }
+
+               @Override
+               protected void updateItem(Void item, boolean empty) {
+                  super.updateItem(item, empty);
+                  // Prazne vrstice ne smejo imeti gumba
+                  if (empty) {
+                     setGraphic(null);
+                  } else {
+                     setAlignment(Pos.CENTER);
+                     setGraphic(btn);
+                  }
+               }
+            };
+         }
+      });
+   }
+   private void odstraniPostavko(Racun.Postavka postavka) {
+      // Odstranimo iz ObservableList → TableView se samodejno posodobi
+      postavkeRacuna.remove(postavka);
+      // Odstranimo tudi iz razreda Racun
+      trenutniRacun.getPostavke().remove(postavka);
+      // Posodobimo skupni znesek
+      PrikaziOsvezenRacun();
+   }
+
 
    /*private void osveziGumbeArtiklov() {
       paneGumbi.getChildren().clear();

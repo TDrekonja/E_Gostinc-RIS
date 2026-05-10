@@ -1,0 +1,251 @@
+
+.root {
+    -fx-background-color: #e0e5ec;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+.tab-pane {
+    -fx-background-color: #e0e5ec;
+}
+
+.tab-pane > .tab-header-area {
+    -fx-background-color: #e0e5ec;
+    -fx-padding: 10 10 0 10;
+}
+
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #e0e5ec;
+    -fx-background-radius: 10 10 0 0;
+    -fx-padding: 7 18;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #a3b1c6, 6, 0, 2, 2);
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #8a9bb0;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #e0e5ec;
+    -fx-effect: dropshadow(gaussian, #a3b1c6, 8, 0, 3, 3);
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #4a6fa5;
+}
+
+.tab-pane > .tab-content-area {
+    -fx-background-color: #e0e5ec;
+    -fx-border-color: transparent;
+}
+.gumb-pivo { -fx-text-fill: #d35400; }
+.gumb-brezalkoholno { -fx-text-fill: #27ae60; }
+.gumb-zganje { -fx-text-fill: #8e44ad; }
+.scroll-pane {
+    -fx-background-color: #e0e5ec;
+    -fx-background: #e0e5ec;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: #e0e5ec;
+}
+
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: #e0e5ec;
+    -fx-pref-width: 8px;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #a3b1c6;
+    -fx-background-radius: 4;
+}
+
+.tile-pane {
+    -fx-background-color: #e0e5ec;
+    -fx-padding: 14;
+    -fx-hgap: 12;
+    -fx-vgap: 12;
+}
+
+.gumb-artikel {
+    -fx-background-color: #e0e5ec;
+    -fx-text-fill: #4a6fa5;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 14;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+    -fx-wrap-text: true;
+    -fx-effect: dropshadow(gaussian, #ffffff, 10, 0, -4, -4),
+    dropshadow(gaussian, #a3b1c6, 10, 0, 4, 4);
+}
+
+.gumb-artikel:hover {
+    -fx-text-fill: #2c4a7c;
+    -fx-effect: dropshadow(gaussian, #a3b1c6, 12, 0.0, 5, 5);
+}
+
+.gumb-artikel:pressed {
+    -fx-effect: innershadow(gaussian, #a3b1c6, 8, 0.0, 3, 3);
+    -fx-text-fill: #4a6fa5;
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+}
+
+.panel-racun {
+    -fx-background-color: #e0e5ec;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, #a3b1c6, 16, 0.0, -6, 0);
+}
+
+.label-naslov-racun {
+    -fx-text-fill: #4a6fa5;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 14 16 10 16;
+    -fx-alignment: center;
+    -fx-background-color: #e0e5ec;
+}
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 0 8;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-size: 32;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #8a9bb0;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #e0e5ec;
+    -fx-background-radius: 10;
+    -fx-border-color: transparent;
+    -fx-cell-size: 42px;
+    -fx-padding: 2 4;
+}
+.table-view .table-row-cell:filled {
+    -fx-background-color: #e6ebf2;
+    -fx-background-radius: 5;
+    -fx-margin: 2 0;
+}
+
+
+.table-view .table-row-cell:filled:hover {
+    -fx-effect: dropshadow(gaussian, #a3b1c6, 8, 0.0, 3, 3);
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #d0d8e4;
+    -fx-effect: innershadow(gaussian, #a3b1c6, 5, 0.0, 2, 2);
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #3a4a5c;
+    -fx-font-size: 12px;
+    -fx-padding: 0 6;
+    -fx-background-color: transparent;
+}
+
+/* Prazna tabela */
+.table-view .placeholder {
+    -fx-background-color: transparent;
+}
+
+.table-view .placeholder .label {
+    -fx-text-fill: #a3b1c6;
+    -fx-font-style: italic;
+    -fx-font-size: 12px;
+}
+
+/* Scrollbar v tabeli */
+.table-view .scroll-bar {
+    -fx-pref-width: 6px;
+    -fx-background-color: transparent;
+}
+
+.table-view .scroll-bar .thumb {
+    -fx-background-color: #c0c8d4;
+    -fx-background-radius: 3;
+}
+
+.gumb-odstrani {
+    -fx-background-color: #e0e5ec;
+    -fx-text-fill: #c0392b;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 2 6;
+    -fx-background-radius: 8;
+    -fx-min-width: 26px;
+    -fx-max-width: 26px;
+    -fx-min-height: 26px;
+    -fx-max-height: 26px;
+    -fx-effect: dropshadow(gaussian, #a3b1c6, 4, 0.0, 2, 2);
+}
+
+.gumb-odstrani:hover {
+    -fx-effect: dropshadow(gaussian, #a3b1c6, 7, 0.0, 3, 3);
+    -fx-text-fill: #e74c3c;
+}
+
+.gumb-odstrani:pressed {
+    -fx-effect: innershadow(gaussian, #a3b1c6, 5, 0.0, 2, 2);
+}
+
+.label-skupaj {
+    -fx-text-fill: #2c4a7c;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 20;
+    -fx-background-color: #e0e5ec;
+    -fx-alignment: center-right;
+    -fx-effect: dropshadow(gaussian, #a3b1c6, 6, 0.0, 0, -3);
+}
+
+/* ---- Gumb Izdaj račun (neumorphism raised + poudarjen) ---- */
+.gumb-izdaj {
+    -fx-background-color: linear-gradient(to bottom, #5a7fb5, #4a6fa5);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-margin: 10;
+    -fx-cursor: hand;
+    -fx-padding: 16 0;
+    -fx-effect: dropshadow(gaussian, #2c4a7c, 8, 0.0, 0, 4);
+}
+
+.gumb-izdaj:hover {
+    -fx-background-color: #3a5f95;
+    -fx-effect: dropshadow(gaussian, #2c4a7c, 14, 0.0, 0, 5);
+}
+
+.gumb-izdaj:pressed {
+    -fx-background-color: #2c4a7c;
+    -fx-effect: innershadow(gaussian, #1a3060, 8, 0.0, 0, 3);
+}
