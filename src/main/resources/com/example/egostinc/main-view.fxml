@@ -4,34 +4,70 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="520.0" minWidth="760.0" prefHeight="640.0" prefWidth="960.0" stylesheets="@blagajna.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.egostinc.ZM_Blagajna">
+<VBox spacing="0"
+      minHeight="520.0" minWidth="760.0"
+      prefHeight="640.0" prefWidth="960.0"
+      stylesheets="@blagajna.css"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.egostinc.ZM_Blagajna">
+
+    <HBox styleClass="toolbar" alignment="CENTER_LEFT" spacing="12">
+        <padding><Insets top="8" right="16" bottom="8" left="16"/></padding>
+
+        <Label text="E-Gostinc" styleClass="toolbar-brand" />
+        <Label text="·" style="-fx-text-fill: #a0b0c0;" />
+        <Label fx:id="labelUporabnik" text="—" styleClass="toolbar-user" />
+
+        <HBox HBox.hgrow="ALWAYS" />
+        <Button fx:id="gumbSkladisce"
+                text="Skladišče"
+                styleClass="gumb-toolbar"
+                visible="false" managed="false"
+                onAction="#odpriSkladisce" />
+        <Button fx:id="gumbPromet"
+                text="Dnevni promet"
+                styleClass="gumb-toolbar"
+                visible="false" managed="false"
+                onAction="#odpriPromet" />
+        <Button text="Odjava"
+                styleClass="gumb-odjava"
+                onAction="#odjava" />
+    </HBox>
+
+    <Separator />
+
+
+<GridPane VBox.vgrow="ALWAYS" >
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="420.0" percentWidth="62.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="280.0" percentWidth="38.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="420.0" percentWidth="62.0" />
+    <ColumnConstraints hgrow="ALWAYS" minWidth="280.0" percentWidth="38.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints />
       <RowConstraints vgrow="ALWAYS" />
   </rowConstraints>
    <children>
-      <VBox styleClass="panel-racun" GridPane.columnIndex="1" spacing="0">
+      <VBox styleClass="panel-racun" GridPane.columnIndex="1" spacing="0" GridPane.rowIndex="0">
          <children>
              <Label text="RAČUN" styleClass="label-naslov-racun"
                     maxWidth="Infinity" />
             <TableView fx:id="tabelaRacuna" VBox.vgrow="ALWAYS">
               <columns>
                   <TableColumn fx:id="stolpecArtikel" minWidth="100.0"   prefWidth="180.0" text="Artikel" />
-                  <TableColumn fx:id="stolpecKolicina" minWidth="36.0" maxWidth="48.0" prefWidth="40.0" text="Količina" />
+                  <TableColumn fx:id="stolpecKolicina" minWidth="36.0" maxWidth="48.0" prefWidth="40.0" text="Kol." />
                   <TableColumn fx:id="stolpecCena"  minWidth="52.0" maxWidth="70.0"    prefWidth="60.0" text="Cena" />
                   <TableColumn fx:id="stolpecOdstrani" text=""   minWidth="34.0" maxWidth="38.0" prefWidth="36.0"  />
               </columns>
@@ -54,7 +90,7 @@
          </children>
       </VBox>
 
-      <TabPane fx:id="paneGumbi" prefHeight="640.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="0">
+      <TabPane fx:id="paneGumbi" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="0" GridPane.rowIndex="0">
         <tabs>
           <Tab text="Pivo">
                <content>
@@ -96,3 +132,4 @@
       </TabPane>
    </children>
 </GridPane>
+</VBox>

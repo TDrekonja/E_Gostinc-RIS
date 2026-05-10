@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="0" prefWidth="360.0"
+      stylesheets="@blagajna.css"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.egostinc.ZM_Placilo">
+
+    <VBox styleClass="login-header" alignment="CENTER">
+        <padding><Insets top="24" right="24" bottom="20" left="24"/></padding>
+        <Label text="PLAČILO" styleClass="login-title" />
+        <Label fx:id="labelZnesek" text="0,00 €"
+               style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold;" />
+        <Label fx:id="labelRacun" text="Račun #1"
+               style="-fx-text-fill: #c8d8f0; -fx-font-size: 12px;" />
+    </VBox>
+
+    <VBox spacing="14" alignment="CENTER">
+        <padding><Insets top="28" right="36" bottom="28" left="36"/></padding>
+
+        <Label text="Izberite način plačila:" styleClass="login-label"
+               maxWidth="Infinity" style="-fx-alignment: center;" />
+
+        <Button fx:id="gumbGotovina"
+                text="GOTOVINA"
+                styleClass="gumb-placilo-gotovina"
+                maxWidth="Infinity"
+                onAction="#platiGotovina" />
+
+        <Button fx:id="gumbKartica"
+                text="KARTICA"
+                styleClass="gumb-placilo-kartica"
+                maxWidth="Infinity"
+                onAction="#platiKartica" />
+
+        <Button text="Prekliči"
+                styleClass="gumb-toolbar"
+                maxWidth="Infinity"
+                onAction="#preklic" />
+    </VBox>
+
+</VBox>

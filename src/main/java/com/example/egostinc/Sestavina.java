@@ -27,6 +27,15 @@ public class Sestavina {
    public float VrniTrenutnoZalogo() {
       return this.Trenutnazaloga;
    }
+   public String getNaziv() {
+      return this.Naziv;
+   }
+   public float getMejaOpozorila() {
+      return this.Mejaopozorila;
+   }
+   public float getTrenutnoZalogo() {
+      return this.Trenutnazaloga;
+   }
    
    /** @pdOid 7f6d055c-2066-43e6-adc4-595551132948 */
    public void PosodobiKolicino(float kolicina) {

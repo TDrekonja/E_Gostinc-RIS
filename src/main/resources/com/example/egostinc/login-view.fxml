@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox alignment="CENTER" spacing="0"
+      prefWidth="400.0" prefHeight="500.0"
+      stylesheets="@blagajna.css"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.egostinc.ZM_Prijava">
+
+    <padding><Insets top="0" right="0" bottom="0" left="0"/></padding>
+
+    <VBox alignment="CENTER" styleClass="login-header" maxWidth="Infinity" spacing="4">
+        <padding><Insets top="36" right="32" bottom="28" left="32"/></padding>
+        <Label text="E-Gostinc" styleClass="login-title" />
+        <Label text="Sistem za upravljanje blagajne" styleClass="login-subtitle" />
+    </VBox>
+
+    <VBox alignment="CENTER" spacing="16" maxWidth="Infinity" styleClass="login-form">
+        <padding><Insets top="36" right="48" bottom="36" left="48"/></padding>
+
+        <Label text="Uporabniško ime" styleClass="login-label" maxWidth="Infinity"/>
+        <TextField fx:id="poljeUporabniskoIme"
+                   promptText="Vnesite uporabniško ime"
+                   styleClass="login-field"
+                   maxWidth="Infinity"
+                   onAction="#PrijavaVSistem"/>
+
+        <Label text="Geslo" styleClass="login-label" maxWidth="Infinity"/>
+        <PasswordField fx:id="poljeGeslo"
+                       promptText="Vnesite geslo"
+                       styleClass="login-field"
+                       maxWidth="Infinity"
+                       onAction="#PrijavaVSistem"/>
+
+        <!-- Napaka -->
+        <Label fx:id="labelNapaka" text="" styleClass="login-napaka" maxWidth="Infinity"
+               managed="false" visible="false"/>
+
+        <Button text="PRIJAVA"
+                styleClass="gumb-izdaj"
+                maxWidth="Infinity"
+                onAction="#PrijavaVSistem">
+            <VBox.margin><Insets top="8"/></VBox.margin>
+        </Button>
+
+    </VBox>
+
+    <VBox alignment="CENTER" spacing="4" styleClass="login-hint">
+        <padding><Insets top="0" right="48" bottom="24" left="48"/></padding>
+        <Label text="Testni računi:" styleClass="hint-naslov"/>
+        <Label text="natakar / 1234  ·  vodja / admin  ·  skladiscnik / 5678" styleClass="hint-tekst"/>
+    </VBox>
+
+</VBox>
