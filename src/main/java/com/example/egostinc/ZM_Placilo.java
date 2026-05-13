@@ -1,6 +1,7 @@
 package com.example.egostinc;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -10,7 +11,6 @@ public class ZM_Placilo {
     @FXML private Label labelRacun;
 
     private Racun racun;
-    // Callback — pokliče se ko je plačilo izbrano
     private Runnable onPlacanoCallback;
 
     public void setRacun(Racun racun, Runnable onPlacano) {
@@ -39,6 +39,24 @@ public class ZM_Placilo {
         racun.setNacinPlacila(nacin);
         racun.ArhivirajRacun();
         zapriOkno();
+        String nacinBesedilo = nacin == Racun.NacinPlacila.GOTOVINA
+                ? "Gotovina" : "Kartica";
+        StringBuilder sb = new StringBuilder();
+        for (Racun.Postavka p : racun.getPostavke()) {
+            sb.append(String.format("%-22s x%d = %.2f €%n",
+                    p.getNaziv(), p.getKolicina(), p.getCena()));
+        }
+        sb.append(String.format("%n══════════════════════════%n"));
+        sb.append(String.format("Plačilo: %s%n", nacinBesedilo));
+        sb.append(String.format("SKUPAJ:  %.2f €", racun.getSkupniZnesek()));
+
+        Alert potrdilo = AlertHelper.ustvari(
+                Alert.AlertType.INFORMATION,
+                "Plačilo uspešno",
+                "Račun #" + racun.getStevilkaRacuna() + " — " + nacinBesedilo,
+                sb.toString());
+        potrdilo.showAndWait();
+
         if (onPlacanoCallback != null) onPlacanoCallback.run();
     }
 

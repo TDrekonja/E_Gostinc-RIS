@@ -272,7 +272,7 @@ public class ZM_Blagajna implements Initializable{
 
          Stage stage = new Stage();
          stage.setTitle("Plačilo");
-         stage.initModality(Modality.APPLICATION_MODAL); // blokira blagajno
+         stage.initModality(Modality.APPLICATION_MODAL);
          stage.setResizable(false);
          stage.setScene(scene);
          stage.showAndWait();
@@ -285,27 +285,9 @@ public class ZM_Blagajna implements Initializable{
    }
    /** @pdOid 1fe42668-4615-4814-994e-7b7c74eae933 */
    public void PrikaziKoncniRacun() {
-      StringBuilder sb = new StringBuilder();
-      sb.append("Račun #").append(trenutniRacun.getStevilkaRacuna()).append("\n");
-      sb.append("─────────────────────\n");
-
-      for (Racun.Postavka p : postavkeRacuna) {
-         sb.append(String.format("%-20s x%d = %.2f €%n",
-                 p.getNaziv(), p.getKolicina(), p.getCena()));
-      }
-
-      sb.append("─────────────────────\n");
-      sb.append(String.format("SKUPAJ: %.2f €", trenutniRacun.getSkupniZnesek()));
-
-      Alert alert = new Alert(Alert.AlertType.INFORMATION);
-      alert.setTitle("Končni račun");
-      alert.setHeaderText("Račun #" + trenutniRacun.getStevilkaRacuna());
-      alert.setContentText(sb.toString());
-      alert.showAndWait();
-
-      trenutniRacun.ArhivirajRacun();
-
       trenutniRacun = new Racun();
+      if (prijavljenUporabnik != null)
+         trenutniRacun.setNatakar(prijavljenUporabnik.getImeInPriimek());
       postavkeRacuna.clear();
       PrikaziOsvezenRacun();
    }
